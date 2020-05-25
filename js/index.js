@@ -60,7 +60,7 @@ function showNotes()
         <div class="card-body">
           <h5 class="card-title">${element.title}</h5>
           <p class="card-text"> ${element.text}</p>
-          <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary mb-3">Delete Note</button>
+          <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger mb-3">Delete Note</button>
           <small style="text-align:right; display:block;">${element.today}</small>
         </div>
       </div>
@@ -72,7 +72,7 @@ function showNotes()
         notesElm.innerHTML=html;
     }
     else{
-        notesElm.innerHTML=`Nothing to show!Use "Add a Note" Section above to add notes.`
+        notesElm.innerHTML=`Nothing to show! Use "Add Note" Section for creating your notes.`
     }
 
 }
@@ -80,7 +80,10 @@ function showNotes()
 
 function deleteNote(index)
 {
-    console.log("I am deleting ", index);
+    var result=confirm("Are you sure you want to delete?");
+//     console.log("I am deleting ", index);
+    if(result)
+    {
     let notes=localStorage.getItem("notes");
     if(notes==null)
     {
@@ -92,6 +95,7 @@ function deleteNote(index)
     notesObj.splice(index, 1);
     localStorage.setItem("notes", JSON.stringify(notesObj));
     showNotes();
+    }
 }
 
 let search=document.getElementById("searchTxt");

@@ -46,6 +46,14 @@ function showNotes()
     let html="";
     notesObj.forEach(function(element, index)
     {
+        if(element.title.length===0)
+        {
+            element.title="Title";
+        }
+        if(element.text.length===0)
+        {
+            element.text="Note...";
+        }
         html+=`
         <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
         <!-- <img src="..." class="card-img-top" alt="..."> -->

@@ -60,7 +60,7 @@ function showNotes()
         <div class="card-body">
           <h5 class="card-title">${element.title}</h5>
           <p class="card-text"> ${element.text}</p>
-          <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger mb-3">Delete Note</button>
+          <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger my-3">Delete Note</button>
           <small style="text-align:right; display:block;">${element.today}</small>
         </div>
       </div>

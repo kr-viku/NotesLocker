@@ -1,3 +1,4 @@
+var today;
 showNotes();
 let addBtn=document.getElementById("addBtn");
 addBtn.addEventListener("click", function(a)
@@ -5,6 +6,14 @@ addBtn.addEventListener("click", function(a)
     let addTxt=document.getElementById("addTxt");
     let addTitle=document.getElementById("addTitle");
     let notes=localStorage.getItem("notes");
+    let day=new Date();
+    let dic={0:"Jan", 1:"Feb", 2:"Mar", 3:"Apr", 4:"May", 5:"Jun", 6:"July", 7:"Aug", 8:"Sep", 9:"Oct", 10:"Nov", 11:"Dec"};
+    let date=day.getDate();
+    let mon=day.getMonth();
+    // console.log(mon);
+    let year=day.getFullYear();
+    // console.log(year);
+    let time=date+dic[mon]+" "+year;
     if(notes==null)
     {
         notesObj=[];
@@ -14,7 +23,8 @@ addBtn.addEventListener("click", function(a)
     }
     let myobj={
         title:addTitle.value,
-        text:addTxt.value
+        text:addTxt.value,
+        today:time
     }
     notesObj.push(myobj);
     localStorage.setItem("notes", JSON.stringify(notesObj));
@@ -42,7 +52,8 @@ function showNotes()
         <div class="card-body">
           <h5 class="card-title">${element.title}</h5>
           <p class="card-text"> ${element.text}</p>
-          <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+          <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary mb-3">Delete Note</button>
+          <small style="text-align:right; display:block;">${element.today}</small>
         </div>
       </div>
       `;

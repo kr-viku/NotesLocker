@@ -55,7 +55,7 @@ function showNotes()
             element.text="Note...";
         }
         html+=`
-        <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
+        <div class="noteCard my-2 mx-2 card shadow-lg p-3 mb-5 rounded bg-dark text-white" style="width: 18rem;">
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
           <h5 class="card-title">${element.title}</h5>
